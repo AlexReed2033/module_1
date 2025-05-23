@@ -108,13 +108,12 @@ enter
 ## Настройка адресации  
 **Назначаем адресацию согласно ранее заполненной таблицы №1**  
 
-## **CLI**  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/2a47b1bb-fd52-4d8a-9477-d00cc2edecce)  
+## **CLI**   
 
 ```
 ip -c a
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c42a6bb6-4742-47fc-8e04-c50d79d34e0b)  
+![image](305539916-c42a6bb6-4742-47fc-8e04-c50d79d34e0b.png)  
 
 ## **ISP**  
 ```
@@ -124,8 +123,7 @@ enter
 nmtui
 ```
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/6fd69321-b8af-4fac-8af3-ce3d725c3c79)  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/2c688d45-2e2e-465b-b248-3bbdd35085b7)  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/df296352-40b6-4b49-a803-36918ac6073a)  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/2c688d45-2e2e-465b-b248-3bbdd35085b7)    
 После установки ip-адресов необходимо переподключить интерфейсы.  
 
 Произведём настройку маршрута для CLI
@@ -137,8 +135,6 @@ ip route add default via 192.168.0.2
 ```
 nano /etc/net/sysctl.conf
 @@ -337,219 +342,220 @@
-```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/16af1efa-2fb8-44ce-8e23-128430e6d46c)  
 ```
 cp /etc/dhcp/dhcpd.conf{.example,}
 nano /etc/dhcp/dhcpd.conf
@@ -176,12 +172,10 @@ systemctl restart network
 | Branch admin     | P@ssw0rd       | BR-SRV BR-R      |
 | Network admin     | P@ssw0rd       | HQ-R BR-R BR-SRV      |
 
-## **CLI**
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/f1abfc96-841c-4bb8-94d3-a6a991b260c0)  
+## **CLI** 
 Пароль: toor  
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/7ccf9221-f244-4b1c-b257-884ce25d27dc)  
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/3b3b13a0-a3b0-4e5d-9104-ec74295a2dc0)
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/7461c42a-578e-4618-9199-e3aed7e9088b)
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/674b3985-06f2-4a96-aff2-f645fcc1ac04)
 
 ## **BR-R**
@@ -306,8 +300,7 @@ nft list ruleset
 ```
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/4bec0562-f600-4c8f-9a14-c67fa686edc4)  
 
-Выполняем проверку подключения:  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/d63221e1-a13a-44aa-8add-908d7bcd3f47)  
+Выполняем проверку подключения. 
 
 **8.	Настройте контроль доступа до HQ-SRV по SSH со всех устройств, кроме CLI.**
 
