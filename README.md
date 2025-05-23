@@ -16,7 +16,7 @@
 su -
 toor
 hostnamectl set-hostname ISP; exec bash
-нажать enter
+enter
 ```
 
 ### **CLI**
@@ -24,7 +24,7 @@ hostnamectl set-hostname ISP; exec bash
 su -
 toor
 hostnamectl set-hostname CLI; exec bash
-нажать enter
+enter
 ``` 
 
 ### **HQ-R**
@@ -32,7 +32,7 @@ hostnamectl set-hostname CLI; exec bash
 su -
 toor
 hostnamectl set-hostname HQ-R; exec bash
-нажать enter
+enter
 ```
 
 ### **HQ-SRV**
@@ -40,7 +40,7 @@ hostnamectl set-hostname HQ-R; exec bash
 su -
 toor
 hostnamectl set-hostname HQ-SRV; exec bash
-нажать enter
+enter
 ```
 
 ### **BR-R**
@@ -48,7 +48,7 @@ hostnamectl set-hostname HQ-SRV; exec bash
 su -
 toor
 hostnamectl set-hostname BR-R; exec bash
-нажать enter
+enter
 ```
 
 
@@ -58,7 +58,7 @@ hostnamectl set-hostname BR-R; exec bash
 su -
 toor
 hostnamectl set-hostname BR-SRV; exec bash
-нажать enter
+enter
 ```
 
 
@@ -67,8 +67,8 @@ hostnamectl set-hostname BR-SRV; exec bash
 ```
 su -
 toor
-hostnamectl set-hostname BR-SRV; exec bash
-нажать enter
+hostnamectl set-hostname HQ-CLI; exec bash
+enter
 ```
 
 
@@ -77,8 +77,8 @@ hostnamectl set-hostname BR-SRV; exec bash
 ```
 su -
 toor
-hostnamectl set-hostname BR-SRV; exec bash
-нажать enter
+hostnamectl set-hostname HQ-AD; exec bash
+enter
 ```
 
 
