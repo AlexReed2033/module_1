@@ -117,13 +117,13 @@ ctrl-x
 y
 enter
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c468da7e-93e8-4ab6-8512-bff6152f293e)  
+![image](299778742-c468da7e-93e8-4ab6-8512-bff6152f293e.png)  
 
 ```
 systemctl restart network
 ip -c a
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/9c28a552-a15a-4fb8-9b22-339a5cfd0d5d)   
+![image](305508852-9c28a552-a15a-4fb8-9b22-339a5cfd0d5d.png)   
 
 ## **HQ-R**  
 ```
@@ -132,8 +132,8 @@ toor
 enter
 nmtui
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/563fb426-a5ae-43ad-895a-83c6cf563845)
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/d6547cfc-0796-45f1-bae9-aacde55d9628)
+![image](305511468-563fb426-a5ae-43ad-895a-83c6cf563845.png)
+![image](305512031-d6547cfc-0796-45f1-bae9-aacde55d9628.png)
 
 ```
 ctrl-x
@@ -147,12 +147,12 @@ ctrl-x
 y
 enter
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c468da7e-93e8-4ab6-8512-bff6152f293e)  
+![image](299778742-c468da7e-93e8-4ab6-8512-bff6152f293e.png)  
 ```
 systemctl restart network
 ip -c a
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/9df4565f-7e66-46cd-a0f3-a279beac373f)
+![image](299931649-9df4565f-7e66-46cd-a0f3-a279beac373f.png)
 
 ## **HQ-SRV**  
 В дальнейшем на HQ-SRV подразумевается получение адреса по DHCP от HQ-R.  
@@ -165,8 +165,8 @@ toor
 enter
 nmtui
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/ec24eecb-51fe-464c-a8ff-0445fdabb004)  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/13fc4ab3-2428-484a-985d-a267cf38c143)  
+![image](305515712-ec24eecb-51fe-464c-a8ff-0445fdabb004.png)  
+![image](305514755-13fc4ab3-2428-484a-985d-a267cf38c143.png)  
 
 
 Необходимо включить опцию forwarding:  
@@ -178,14 +178,14 @@ enter
 systemctl restart network
 ip -c a
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/0f3c5a5c-81c4-4372-8c36-74a4ab16e2eb)  
+![image](305516706-0f3c5a5c-81c4-4372-8c36-74a4ab16e2eb.png)  
 
 ## **BR-SRV**  
 
 ```
 ip -c a
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/12b60453-c385-4020-a655-fde5f906b65a)
+![image](299936811-12b60453-c385-4020-a655-fde5f906b65a.png)
 
 **2.	Настройте внутреннюю динамическую маршрутизацию по средствам FRR. Выберите и обоснуйте выбор протокола динамической маршрутизации из расчёта, что в дальнейшем сеть будет масштабироваться.**  
 **Настройка FRR**  
@@ -196,13 +196,13 @@ ip -c a
 ```
 nmtui
 ``` 
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/4df2a006-fa62-4cf3-aa34-2c7685c470a5)  
+![image](305524897-4df2a006-fa62-4cf3-aa34-2c7685c470a5.png)  
 
 ## **BR-R**
 ```
 nmtui
 ``` 
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/914a562f-36cd-4bab-989e-97f2db457044)  
+![image](305525453-914a562f-36cd-4bab-989e-97f2db457044.png)  
 
 **Обоснование**: Настройку динамическое маршрутизации производим с помощью протокола **OSPF** – Данный протокол динамической сети позволяет разделять сеть на логические области, что делает его масштабируемым для больших сетей.  
 Каждая область может иметь свою таблицу маршрутизации, что уменьшает нагрузку на маршрутизаторы и улучшает производительность сети.  
@@ -214,7 +214,7 @@ nano /etc/frr/daemons
 ospfd=no на строчку
 ospfd=yes
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/3e2c4d58-ea53-44a9-b222-7bf85951b9b4)  
+![image](299781525-3e2c4d58-ea53-44a9-b222-7bf85951b9b4.png)  
 
 ```
 ctrl-x
@@ -259,7 +259,7 @@ nano /etc/frr/daemons
 ospfd=no на строчку
 ospfd=yes
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/3e2c4d58-ea53-44a9-b222-7bf85951b9b4)  
+![image](299781525-3e2c4d58-ea53-44a9-b222-7bf85951b9b4.png)  
 
 ```
 ctrl-x
@@ -303,7 +303,7 @@ exit
 **a.	Составьте топологию сети L3.**  
 
 **Схема топологии L3**  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/9ad4ac5a-68a1-4fcd-ad5d-697776518faa)  
+![image](306596174-9ad4ac5a-68a1-4fcd-ad5d-697776518faa.png)  
  
 **P.S.** спасибо sysahelper за рисунок!  
 
@@ -317,7 +317,7 @@ ctrl-x
 y
 enter
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/16af1efa-2fb8-44ce-8e23-128430e6d46c)  
+![image](299789925-16af1efa-2fb8-44ce-8e23-128430e6d46c.png)  
 ```
 cp /etc/dhcp/dhcpd.conf{.example,}
 nano /etc/dhcp/dhcpd.conf
