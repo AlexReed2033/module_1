@@ -4,17 +4,17 @@
 Образец задания для демонстрационного экзамена по комплекту оценочной документации.  
 
 ### Модуль 1: Выполнение работ по проектированию сетевой инфраструктуры  
-## **Задание модуля 1** 
+## **Задание 1 модуля 1** 
 **1.	Выполните базовую настройку всех устройств:**  
 **a.	Присвоить имена в соответствии с топологией:**  
-![image](304349393-88f09775-e51c-4113-bb6a-1336c200bf7b.png)  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/88f09775-e51c-4113-bb6a-1336c200bf7b)  
 
 ### **ISP**
 ```
 su -
 toor
 hostnamectl set-hostname ISP; exec bash
-enter
+нажать enter
 ```
 
 ### **CLI**
@@ -22,15 +22,16 @@ enter
 su -
 toor
 hostnamectl set-hostname CLI; exec bash
-enter
-``` 
+нажать enter
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/fb6aaa33-dd89-42fe-bf0e-3485f7eb6dc4)  
 
 ### **HQ-R**
 ```
 su -
 toor
 hostnamectl set-hostname HQ-R; exec bash
-enter
+нажать enter
 ```
 
 ### **HQ-SRV**
@@ -38,7 +39,7 @@ enter
 su -
 toor
 hostnamectl set-hostname HQ-SRV; exec bash
-enter
+нажать enter
 ```
 
 ### **BR-R**
@@ -46,7 +47,7 @@ enter
 su -
 toor
 hostnamectl set-hostname BR-R; exec bash
-enter
+нажать enter
 ```
 
 
@@ -56,29 +57,8 @@ enter
 su -
 toor
 hostnamectl set-hostname BR-SRV; exec bash
-enter
+нажать enter
 ```
-
-
-### **HQ-CLI**
-
-```
-su -
-toor
-hostnamectl set-hostname HQ-CLI; exec bash
-enter
-```
-
-
-### **HQ-AD**
-
-```
-su -
-toor
-hostnamectl set-hostname HQ-AD; exec bash
-enter
-```
-
 
 **b.	Рассчитайте IP-адресацию IPv4 и IPv6. Необходимо заполнить таблицу №1, чтобы эксперты могли проверить ваше рабочее место.**  
 **Таблица №1**  
@@ -108,12 +88,13 @@ enter
 ## Настройка адресации  
 **Назначаем адресацию согласно ранее заполненной таблицы №1**  
 
-## **CLI**   
+## **CLI**  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/2a47b1bb-fd52-4d8a-9477-d00cc2edecce)  
 
 ```
 ip -c a
 ```
-![image](305539916-c42a6bb6-4742-47fc-8e04-c50d79d34e0b.png)  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c42a6bb6-4742-47fc-8e04-c50d79d34e0b)  
 
 ## **ISP**  
 ```
@@ -122,8 +103,9 @@ toor
 enter
 nmtui
 ```
-![image](305506919-6fd69321-b8af-4fac-8af3-ce3d725c3c79.png)  
-![image](305507596-2c688d45-2e2e-465b-b248-3bbdd35085b7.png)    
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/6fd69321-b8af-4fac-8af3-ce3d725c3c79)  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/2c688d45-2e2e-465b-b248-3bbdd35085b7)  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/df296352-40b6-4b49-a803-36918ac6073a)  
 После установки ip-адресов необходимо переподключить интерфейсы.  
 
 Произведём настройку маршрута для CLI
@@ -134,12 +116,224 @@ ip route add default via 192.168.0.2
 Необходимо включить опцию forwarding:  
 ```
 nano /etc/net/sysctl.conf
-@@ -337,219 +342,220 @@
+ctrl-x
+y
+enter
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c468da7e-93e8-4ab6-8512-bff6152f293e)  
+
+```
+systemctl restart network
+ip -c a
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/9c28a552-a15a-4fb8-9b22-339a5cfd0d5d)   
+
+## **HQ-R**  
+```
+su -
+toor
+enter
+nmtui
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/563fb426-a5ae-43ad-895a-83c6cf563845)
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/d6547cfc-0796-45f1-bae9-aacde55d9628)
+
+```
+ctrl-x
+y
+enter
+```
+Необходимо включить опцию forwarding:  
+```
+nano /etc/net/sysctl.conf
+ctrl-x
+y
+enter
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c468da7e-93e8-4ab6-8512-bff6152f293e)  
+```
+systemctl restart network
+ip -c a
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/9df4565f-7e66-46cd-a0f3-a279beac373f)
+
+## **HQ-SRV**  
+В дальнейшем на HQ-SRV подразумевается получение адреса по DHCP от HQ-R.  
+Удостоверимся, что на интерфейсе установлено получение адресов через DHCP.
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/7d906ddf-918d-4d48-b246-b1d8bfd5803e)  
+
+## **BR-R**  
+```
+su -
+toor
+enter
+nmtui
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/ec24eecb-51fe-464c-a8ff-0445fdabb004)  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/13fc4ab3-2428-484a-985d-a267cf38c143)  
+
+
+Необходимо включить опцию forwarding:  
+```
+nano /etc/net/sysctl.conf
+ctrl-x
+y
+enter
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c468da7e-93e8-4ab6-8512-bff6152f293e)  
+```
+systemctl restart network
+ip -c a
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/0f3c5a5c-81c4-4372-8c36-74a4ab16e2eb)  
+
+## **BR-SRV**  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/ed430966-cfd6-418d-beb6-0379cf3519a9)
+
+```
+ip -c a
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/12b60453-c385-4020-a655-fde5f906b65a)
+
+**2.	Настройте внутреннюю динамическую маршрутизацию по средствам FRR. Выберите и обоснуйте выбор протокола динамической маршрутизации из расчёта, что в дальнейшем сеть будет масштабироваться.**  
+**Настройка FRR**  
+Для настройки потребуется включённый forwarding, настройка выполнялась ранее.  
+
+Предварительно настроем интерфейс туннеля:
+## **HQ-R**
+```
+nmtui
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/62a54525-cff5-46fb-9c46-1d4f0f9a1499)  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/4df2a006-fa62-4cf3-aa34-2c7685c470a5)  
+
+## **BR-R**
+```
+nmtui
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/62a54525-cff5-46fb-9c46-1d4f0f9a1499)  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/914a562f-36cd-4bab-989e-97f2db457044)  
+
+**Обоснование**: Настройку динамическое маршрутизации производим с помощью протокола **OSPF** – Данный протокол динамической сети позволяет разделять сеть на логические области, что делает его масштабируемым для больших сетей.  
+Каждая область может иметь свою таблицу маршрутизации, что уменьшает нагрузку на маршрутизаторы и улучшает производительность сети.  
+## **HQ-R**
+
+```
+nano /etc/frr/daemons
+меняем строчку
+ospfd=no на строчку
+ospfd=yes
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/3e2c4d58-ea53-44a9-b222-7bf85951b9b4)  
+
+```
+ctrl-x
+y
+systemctl enable --now frr
+vtysh
+conf t
+router ospf
+passive-interface default
+network 10.0.0.0/26 area 0
+network 172.16.0.0/24 area 0
+exit
+interface tun1
+no ip ospf network broadcast
+no ip ospf passive
+exit
+do write memory
+exit
+```
+Зададим TTL для OSPF  
+```
+nmcli connection edit tun1
+set ip-tunnel.ttl 64
+save
+quit
+```
+
+Временно выключаем сервис службы **firewalld**  
+```
+systemctl stop firewalld.service
+systemctl disable --now firewalld.service
+```
+```
+systemctl restart frr
+```
+
+## **BR-R**
+
+```
+nano /etc/frr/daemons
+меняем строчку
+ospfd=no на строчку
+ospfd=yes
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/3e2c4d58-ea53-44a9-b222-7bf85951b9b4)  
+
+```
+ctrl-x
+y
+systemctl enable --now frr
+vtysh
+conf t
+router ospf
+passive-interface default
+network 10.0.2.0/28 area 0
+network 172.16.0.0/24 area 0
+exit
+interface tun1
+no ip ospf network broadcast
+no ip ospf passive
+exit
+do write memory
+exit
+```
+Зададим TTL для OSPF  
+```
+nmcli connection edit tun1
+set ip-tunnel.ttl 64
+save
+quit
+```
+Временно выключаем сервис службы **firewalld**  
+```
+systemctl stop firewalld.service
+systemctl disable --now firewalld.service
+```
+```
+systemctl restart frr
+```
+Проверим работу OSPF:  
+```
+show ip ospf neighbor
+exit
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c9b9072d-3d7d-4949-8541-cb45601ccb61)
+P.S. в случае, если OSPF не заработал, можно перезапустить машины **ISP** **BR-R** **HQ-R**  
+
+**a.	Составьте топологию сети L3.**  
+
+**Схема топологии L3**  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/9ad4ac5a-68a1-4fcd-ad5d-697776518faa)  
+ 
+**P.S.** спасибо sysahelper за рисунок!  
+
+**3.	Настройте автоматическое распределение IP-адресов на роутере HQ-R.**
+**a.	Учтите, что у сервера должен быть зарезервирован адрес.**
+## **HQ-R**
+```
+nano /etc/sysconfig/dhcpd
+DHCPDARGS=ens224
+ctrl-x
+y
+enter
+```
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/16af1efa-2fb8-44ce-8e23-128430e6d46c)  
 ```
 cp /etc/dhcp/dhcpd.conf{.example,}
 nano /etc/dhcp/dhcpd.conf
 ```
-заполняем файл:  
 поправляем файл:  
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/9263f9b8-4ac5-41e5-aa44-4d93285e774e)  
 
@@ -172,10 +366,12 @@ systemctl restart network
 | Branch admin     | P@ssw0rd       | BR-SRV BR-R      |
 | Network admin     | P@ssw0rd       | HQ-R BR-R BR-SRV      |
 
-## **CLI** 
+## **CLI**
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/f1abfc96-841c-4bb8-94d3-a6a991b260c0)  
 Пароль: toor  
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/7ccf9221-f244-4b1c-b257-884ce25d27dc)  
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/3b3b13a0-a3b0-4e5d-9104-ec74295a2dc0)
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/7461c42a-578e-4618-9199-e3aed7e9088b)
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/674b3985-06f2-4a96-aff2-f645fcc1ac04)
 
 ## **BR-R**
@@ -300,7 +496,8 @@ nft list ruleset
 ```
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/4bec0562-f600-4c8f-9a14-c67fa686edc4)  
 
-Выполняем проверку подключения. 
+Выполняем проверку подключения:  
+![image](https://github.com/NyashMan/DEMO2024/assets/1348639/d63221e1-a13a-44aa-8add-908d7bcd3f47)  
 
 **8.	Настройте контроль доступа до HQ-SRV по SSH со всех устройств, кроме CLI.**
 
@@ -332,4 +529,5 @@ nft list ruleset
 Выполняем проверку:  
 ## **CLI**
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/735c0cdd-a2f7-4186-b2cd-91e5310724f1)  
-В результате настройки, соединение с сервером **HQ-SRV** по ssh установить не удастся.
+В результате настройки, соединение с сервером **HQ-SRV** по ssh установить не удастся.  
+
