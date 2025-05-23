@@ -122,8 +122,8 @@ toor
 enter
 nmtui
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/6fd69321-b8af-4fac-8af3-ce3d725c3c79)  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/2c688d45-2e2e-465b-b248-3bbdd35085b7)    
+![image](305506919-6fd69321-b8af-4fac-8af3-ce3d725c3c79.png)  
+![image](305507596-2c688d45-2e2e-465b-b248-3bbdd35085b7.png)    
 После установки ip-адресов необходимо переподключить интерфейсы.  
 
 Произведём настройку маршрута для CLI
