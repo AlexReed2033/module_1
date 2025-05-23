@@ -61,6 +61,27 @@ hostnamectl set-hostname BR-SRV; exec bash
 нажать enter
 ```
 
+
+### **HQ-CLI**
+
+```
+su -
+toor
+hostnamectl set-hostname BR-SRV; exec bash
+нажать enter
+```
+
+
+### **HQ-AD**
+
+```
+su -
+toor
+hostnamectl set-hostname BR-SRV; exec bash
+нажать enter
+```
+
+
 **b.	Рассчитайте IP-адресацию IPv4 и IPv6. Необходимо заполнить таблицу №1, чтобы эксперты могли проверить ваше рабочее место.**  
 **Таблица №1**  
 | Имя устройства | IPv4            | IPv6                | Имя интерфейса |
