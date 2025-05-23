@@ -503,28 +503,27 @@ nft list ruleset
 ```
 systemctl enable --now nftables.service
 nft add rule inet filter input ip saddr 10.0.1.2 tcp dport 2222 counter drop
-```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/6eeaf5e0-22d3-4342-89ec-ec5fd4a7fcbd)  
+```  
 
 ```
 nano /etc/nftables/nftables.nft
 ```
 Удаляем всё содержимое файла до закоментированных строк:  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/2921301e-e2d5-464f-ad03-fc2eb33b9043)  
+![image](307135980-2921301e-e2d5-464f-ad03-fc2eb33b9043.png)  
 
 ```
 nft list ruleset | tee -a /etc/nftables/nftables.nft
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/718a8fb8-eb1a-4874-8d7c-76a39fbe9cc2)  
+![image](307136281-718a8fb8-eb1a-4874-8d7c-76a39fbe9cc2.png)  
 
 ```
 systemctl restart nftables
 nft list ruleset
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/e1373d1d-bf3d-40fb-8aa0-2c8625ea1090)  
+![image](307136596-e1373d1d-bf3d-40fb-8aa0-2c8625ea1090.png)  
 
 Выполняем проверку:  
 ## **CLI**
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/735c0cdd-a2f7-4186-b2cd-91e5310724f1)  
+![image](307137997-735c0cdd-a2f7-4186-b2cd-91e5310724f1.png)  
 В результате настройки, соединение с сервером **HQ-SRV** по ssh установить не удастся.  
 
