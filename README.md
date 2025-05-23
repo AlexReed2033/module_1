@@ -157,7 +157,6 @@ ip -c a
 ## **HQ-SRV**  
 В дальнейшем на HQ-SRV подразумевается получение адреса по DHCP от HQ-R.  
 Удостоверимся, что на интерфейсе установлено получение адресов через DHCP.
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/7d906ddf-918d-4d48-b246-b1d8bfd5803e)  
 
 ## **BR-R**  
 ```
@@ -176,16 +175,12 @@ nano /etc/net/sysctl.conf
 ctrl-x
 y
 enter
-```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c468da7e-93e8-4ab6-8512-bff6152f293e)  
-```
 systemctl restart network
 ip -c a
 ```
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/0f3c5a5c-81c4-4372-8c36-74a4ab16e2eb)  
 
 ## **BR-SRV**  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/ed430966-cfd6-418d-beb6-0379cf3519a9)
 
 ```
 ip -c a
@@ -200,15 +195,13 @@ ip -c a
 ## **HQ-R**
 ```
 nmtui
-```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/62a54525-cff5-46fb-9c46-1d4f0f9a1499)  
+``` 
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/4df2a006-fa62-4cf3-aa34-2c7685c470a5)  
 
 ## **BR-R**
 ```
 nmtui
-```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/62a54525-cff5-46fb-9c46-1d4f0f9a1499)  
+``` 
 ![image](https://github.com/NyashMan/DEMO2024/assets/1348639/914a562f-36cd-4bab-989e-97f2db457044)  
 
 **Обоснование**: Настройку динамическое маршрутизации производим с помощью протокола **OSPF** – Данный протокол динамической сети позволяет разделять сеть на логические области, что делает его масштабируемым для больших сетей.  
@@ -306,8 +299,6 @@ systemctl restart frr
 show ip ospf neighbor
 exit
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c9b9072d-3d7d-4949-8541-cb45601ccb61)
-P.S. в случае, если OSPF не заработал, можно перезапустить машины **ISP** **BR-R** **HQ-R**  
 
 **a.	Составьте топологию сети L3.**  
 
@@ -332,14 +323,14 @@ cp /etc/dhcp/dhcpd.conf{.example,}
 nano /etc/dhcp/dhcpd.conf
 ```
 поправляем файл:  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/9263f9b8-4ac5-41e5-aa44-4d93285e774e)  
+![image](309228711-9263f9b8-4ac5-41e5-aa44-4d93285e774e.png)  
 
 
 Проверяем файл на правильность заполнения. Обратите внимание, что файл заполнен в точности со скриншотом выше. (фигурные скобки в начале и конце секции, знаки **;** и тд.)
 ```
 dhcpd -t -cf /etc/dhcp/dhcpd.conf
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/77444d5e-534b-42d9-9b55-e976e9ce13ff)   
+![image](305547950-77444d5e-534b-42d9-9b55-e976e9ce13ff.png)   
 
 ```
 systemctl enable --now dhcpd
@@ -352,7 +343,7 @@ journalctl -f -u dhcpd
 systemctl restart network
 ```
 После проделанных манирпуляций HQ-SRV должен получить статический адрес.
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/84c4ba59-3f4b-442b-a86f-bb7911b963a0)  
+![image](306256459-84c4ba59-3f4b-442b-a86f-bb7911b963a0.png)  
 
 **4.	Настройте локальные учётные записи на всех устройствах в соответствии с таблицей 2.**  
 **Таблица №2**  
@@ -363,13 +354,11 @@ systemctl restart network
 | Branch admin     | P@ssw0rd       | BR-SRV BR-R      |
 | Network admin     | P@ssw0rd       | HQ-R BR-R BR-SRV      |
 
-## **CLI**
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/f1abfc96-841c-4bb8-94d3-a6a991b260c0)  
+## **CLI**  
+Открываем центр управления системой, вводим пароль
 Пароль: toor  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/7ccf9221-f244-4b1c-b257-884ce25d27dc)  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/3b3b13a0-a3b0-4e5d-9104-ec74295a2dc0)
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/7461c42a-578e-4618-9199-e3aed7e9088b)
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/674b3985-06f2-4a96-aff2-f645fcc1ac04)
+![image](299795574-7ccf9221-f244-4b1c-b257-884ce25d27dc.png)  
+![image](Wrc63Us1Qm0.jpg)
 
 ## **BR-R**
 
@@ -379,7 +368,7 @@ passwd branch-admin
 useradd network-admin -m -c "Network admin" -U
 passwd network-admin
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/81e2dde7-a785-4d34-9b66-ddb563b8b4d8)  
+![image](6Yv0KLc08m8.jpg)  
 
 **BR-SRV**
 ```
@@ -388,7 +377,7 @@ passwd branch-admin
 useradd network-admin -m -c "Network admin" -U
 passwd network-admin
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/81e2dde7-a785-4d34-9b66-ddb563b8b4d8)  
+![image](6Yv0KLc08m8.jpg)  
 
 ## **HQ-R**
 
@@ -398,14 +387,14 @@ passwd network-admin
 useradd admin -m -c "Admin" -U
 passwd admin
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/81e2dde7-a785-4d34-9b66-ddb563b8b4d8)
+![image](6Yv0KLc08m8.jpg)
 
 ## **HQ-SRV**
 ```
 useradd admin -m -c "Admin" -U
 passwd admin
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/81e2dde7-a785-4d34-9b66-ddb563b8b4d8)  
+![image](6Yv0KLc08m8.jpg)  
 
 **5.	Измерьте пропускную способность сети между двумя узлами HQ-R-ISP по средствам утилиты iperf 3. Предоставьте описание пропускной способности канала со скриншотами.**
 ## **ISP**
@@ -420,7 +409,7 @@ iperf3 -c 192.168.0.1 -f m --get-server-output
 ```
 
 По результату проверки сделать скриншот.  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/f972d469-1875-4666-9a10-f5d9ce647f5b)  
+![image](306581016-f972d469-1875-4666-9a10-f5d9ce647f5b.png)  
 
 **6.	Составьте backup скрипты для сохранения конфигурации сетевых устройств, а именно HQ-R BR-R. Продемонстрируйте их работу.**  
 
@@ -433,7 +422,7 @@ mkdir /opt/backup/
 ```
 nano backup-script.sh
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/5cb84998-f6b5-4951-8d2c-095aa8e7e96d)  
+![image](299799620-5cb84998-f6b5-4951-8d2c-095aa8e7e96d.png)  
 ```
 ctrl-x
 y
@@ -455,7 +444,7 @@ mkdir /opt/backup/
 ```
 nano backup-script.sh
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/5cb84998-f6b5-4951-8d2c-095aa8e7e96d)  
+![image](299799620-5cb84998-f6b5-4951-8d2c-095aa8e7e96d.png)  
 ```
 ctrl-x
 y
@@ -474,7 +463,7 @@ tar -tf /opt/backup/hq-r-06.01.24.tgz | less
 ```
 nano /etc/openssh/sshd_config
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/d2036a2d-11ac-4eb3-a7ae-17b6633ac0ae)  
+![image](Y5UfoXIZO8s.jpg)  
 ```
 ctrl-x
 y
@@ -491,10 +480,9 @@ systemctl enable --now nftables
 systemctl restart nftables
 nft list ruleset
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/4bec0562-f600-4c8f-9a14-c67fa686edc4)  
+![image](307110973-4bec0562-f600-4c8f-9a14-c67fa686edc4.png)  
 
-Выполняем проверку подключения:  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/d63221e1-a13a-44aa-8add-908d7bcd3f47)  
+И выполняем проверку подключения.   
 
 **8.	Настройте контроль доступа до HQ-SRV по SSH со всех устройств, кроме CLI.**
 
@@ -503,9 +491,6 @@ nft list ruleset
 ```
 systemctl enable --now nftables.service
 nft add rule inet filter input ip saddr 10.0.1.2 tcp dport 2222 counter drop
-```  
-
-```
 nano /etc/nftables/nftables.nft
 ```
 Удаляем всё содержимое файла до закоментированных строк:  
