@@ -23,8 +23,7 @@ su -
 toor
 hostnamectl set-hostname CLI; exec bash
 нажать enter
-```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/fb6aaa33-dd89-42fe-bf0e-3485f7eb6dc4)  
+``` 
 
 ### **HQ-R**
 ```
@@ -88,13 +87,12 @@ hostnamectl set-hostname BR-SRV; exec bash
 ## Настройка адресации  
 **Назначаем адресацию согласно ранее заполненной таблицы №1**  
 
-## **CLI**  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/2a47b1bb-fd52-4d8a-9477-d00cc2edecce)  
+## **CLI**   
 
 ```
 ip -c a
 ```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/c42a6bb6-4742-47fc-8e04-c50d79d34e0b)  
+![image](305539916-c42a6bb6-4742-47fc-8e04-c50d79d34e0b.png)  
 
 ## **ISP**  
 ```
