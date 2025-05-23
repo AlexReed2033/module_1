@@ -7,7 +7,7 @@
 ## **Задание модуля 1** 
 **1.	Выполните базовую настройку всех устройств:**  
 **a.	Присвоить имена в соответствии с топологией:**  
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/88f09775-e51c-4113-bb6a-1336c200bf7b)  
+![image](https://github.com/AlexReed2033/pihota/commit/f25108791da23fe6b5eefba806663f468dc50def)  
 
 ### **ISP**
 ```
