@@ -25,8 +25,7 @@ su -
 toor
 hostnamectl set-hostname CLI; exec bash
 нажать enter
-```
-![image](https://github.com/NyashMan/DEMO2024/assets/1348639/fb6aaa33-dd89-42fe-bf0e-3485f7eb6dc4)  
+``` 
 
 ### **HQ-R**
 ```
